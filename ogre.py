@@ -9,3 +9,6 @@ class Ogre(object):
 		return self.health > 0
 	def take_damage(self, damage):
 		self.health -= damage
+
+	def ogre_cry(self):
+		print "The Ogre yells 'This is my swamp!'"

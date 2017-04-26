@@ -15,14 +15,15 @@ while startup == True:
 		startup = False
 	elif new_game == "N":
 		print "What a shame. Perhaps one day thou wilst become a hero.\n"
+		
 	else:
 		print "That is not a valid input.\n"
 
 hero_name = raw_input("What is thy name, bold adventurer? \n")
 the_hero = Hero(hero_name)
-hero_home = raw_input("Whence dost thou hail, brave %s? \n") % hero_name
+hero_home = raw_input("Whence dost thou hail, brave %s? \n") % the_hero.name
 
-print "Well, %s of %s, I hope you are prepared. \n" % (hero_name, hero_home)
+print "Well, %s of %s, I hope you are prepared. \n" % (the_hero.name, the_hero.home)
 
 
 monsters = []
@@ -32,15 +33,17 @@ monsters.append(Ogre())
 
 
 for monster in monsters:
-	# print "1. 1 enemy"
-	# print "2. 2 enemies"
-	# print "3. 3 enemies"
-	# enemies_num = raw_input("How many enemies do you want to fight? ")
-	# if enemies_num == "1":
-	# 	monsters[0]
+#	 print "1. 1 enemy"
+#	 print "2. 2 enemies"
+#	 print "3. 3 enemies"
+#	 enemies_num = raw_input("How many enemies do you want to fight? ")
+#	 if enemies_num == "1":
+#	 	monsters[0]
 
 	print "\n"
-	print "Mighty hero %s, you have encountered a %s. \n" % (hero_name, monster.name)
+	print "Mighty hero %s, you have encountered a %s. \n" % (the_hero.name, monster.name)
+	if monster == Ogre:
+		monster.ogre_cry()
 	while monster.health > 0 and the_hero.is_alive():
 	 		print "You have %d health and %d power." % (the_hero.health, the_hero.power)
 	 		print "The %s has %d health and %d power.\n" % (monster.name, monster.health, monster.power)
